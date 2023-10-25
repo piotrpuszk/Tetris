@@ -26,3 +26,8 @@ void CollisionHandler::removeCollider(const Block& block)
 {
 	std::for_each(block.getElements().begin(), block.getElements().end(), [this](const Tile& e) {collisionTable.removeCollider(e); });
 }
+
+void CollisionHandler::clear()
+{
+	collisionTable.clear();
+}

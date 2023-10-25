@@ -12,6 +12,26 @@ void BlockMover::setUserActions(const std::vector<UserAction>& newUserActions)
 	for (auto& action : newUserActions) userActions.push_back(action);
 }
 
+void BlockMover::moveAfterDestruction(std::vector<Block>& blocks, std::vector<int> rows)
+{
+	if (rows.size() == 0) return;
+
+	collisionHandler.clear();
+
+	for (const auto& row : rows)
+	{
+		for (auto& b : blocks)
+		{
+			for (auto& e : b.getElementsForModification())
+			{
+				if (e.GetPosition().y < row) e.moveDown();
+			}
+		}
+	}
+
+	for (auto& b : blocks) collisionHandler.addCollider(b);
+}
+
 bool BlockMover::move(Block& block)
 {
 

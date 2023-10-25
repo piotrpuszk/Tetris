@@ -22,5 +22,6 @@ private:
 	size_t currentBlockIndex;
 	TileDestroyer tileDestroyer;
 	RandomShapeGenerator randomShapeGenerator;
+	std::vector<int> destroyedRows;
 };
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "CollisionHandler.h"
 #include "UserAction.h"
 #include "Block.h"
@@ -8,6 +9,7 @@ class BlockMover
 public:
 	BlockMover(CollisionHandler& newCollisionHandler);
 	void setUserActions(const std::vector<UserAction>& newUserActions);
+	void moveAfterDestruction(std::vector<Block>& blocks, std::vector<int> rows);
 	bool move(Block& block);
 	bool applyGravity(Block& block);
 private:

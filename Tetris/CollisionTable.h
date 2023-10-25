@@ -13,6 +13,7 @@ public:
 	void addCollider(const Tile& element);
 	void removeCollider(const Tile& element);
 	void removeCollider(const sf::Vector2i& position);
+	void clear();
 	const sf::Vector2i getSize() const noexcept;
 private:
 	std::vector<std::vector<unsigned int>> collisionTable;

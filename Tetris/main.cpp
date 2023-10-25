@@ -8,7 +8,7 @@
 
 int main()
 {
-	WorldProperties worldProperties{ sf::Vector2u{20, 32}, 30.f, "Tetrisso" };
+	WorldProperties worldProperties{ sf::Vector2u{12, 20}, 30.f, "Tetrisso" };
 	sf::RenderWindow window
 	{
 		{worldProperties.GetScreenSize().x, worldProperties.GetScreenSize().y},

@@ -10,7 +10,8 @@ Tile::Tile(unsigned int newId, std::vector<sf::Vector2i> rotationTable, int x, i
 	image{ sf::RectangleShape{{newSize.x, newSize.y}} },
 	size{ newSize },
 	distanceFromPivot{ newDistanceFromPivot },
-	rotationIndex{ newRotationIndex }
+	rotationIndex{ newRotationIndex },
+	originalPosition{ x, y }
 {
 }
 
@@ -86,4 +87,9 @@ const unsigned int Tile::GetBlockId() const noexcept
 const unsigned int Tile::getRotationIndex() const noexcept
 {
 	return rotationIndex;
+}
+
+const sf::Vector2i& Tile::getOriginalPosition() const noexcept
+{
+	return originalPosition;
 }

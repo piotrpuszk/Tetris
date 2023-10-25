@@ -9,8 +9,8 @@ class TileDestroyer
 {
 public:
 	TileDestroyer(CollisionTable& collisionTable, std::vector<Block>& blocks);
-	unsigned int destroyAll();
-	unsigned int destroy();
+	std::vector<int> destroyAll();
+	int destroy();
 private:
 	CollisionTable& collisionTable;
 	std::vector<Block>& blocks;

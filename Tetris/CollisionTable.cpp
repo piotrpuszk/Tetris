@@ -38,6 +38,17 @@ void CollisionTable::removeCollider(const sf::Vector2i& position)
 	collisionTable[position.y][position.x] = 0;
 }
 
+void CollisionTable::clear()
+{
+	for (auto& row : collisionTable)
+	{
+		for (auto& e : row)
+		{
+			e = 0;
+		}
+	}
+}
+
 const sf::Vector2i CollisionTable::getSize() const noexcept
 {
 	return size;

@@ -11,7 +11,8 @@ GameLoop::GameLoop(const WorldProperties& worldProperties, std::vector<Block>& b
 	userInputHandler{},
 	tileDestroyer{ collisionTable, blocks },
 	randomShapeGenerator{ {worldProperties.GetTileSize(), worldProperties.GetTileSize()}, worldProperties.GetMapSize().x / 2 },
-	currentBlockIndex{}
+	currentBlockIndex{},
+	destroyedRows{}
 {
 	blocks.push_back(randomShapeGenerator.next());
 }
@@ -27,7 +28,8 @@ void GameLoop::fixedUpdate()
 
 	if (!anyMove)
 	{
-		tileDestroyer.destroyAll();
+		auto destroyedResult{ tileDestroyer.destroyAll() };
+		for (auto& e : destroyedResult) destroyedRows.push_back(e);
 		blocks.push_back(randomShapeGenerator.next());
 		currentBlockIndex = blocks.size() - 1;
 	}
@@ -35,11 +37,8 @@ void GameLoop::fixedUpdate()
 
 void GameLoop::update(sf::RenderWindow& window)
 {
-	for (auto& b : blocks)
-	{
-		if (b.getId() == blocks[currentBlockIndex].getId()) continue;
-		blockMover.applyGravity(b);
-	}
+	blockMover.moveAfterDestruction(blocks, destroyedRows);
+	destroyedRows.clear();
 
 	userInputHandler.update();
 	if (userInputHandler.handle(window))

@@ -75,6 +75,11 @@ const std::vector<Tile>& Block::getElements() const
 	return elements;
 }
 
+std::vector<Tile>& Block::getElementsForModification()
+{
+	return elements;
+}
+
 const unsigned int Block::getId() const noexcept
 {
 	return id;

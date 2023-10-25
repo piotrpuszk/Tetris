@@ -21,6 +21,7 @@ public:
 	const unsigned int GetId() const noexcept;
 	const unsigned int GetBlockId() const noexcept;
 	const unsigned int getRotationIndex() const noexcept;
+	const sf::Vector2i& getOriginalPosition() const noexcept;
 private:
 	unsigned int id;
 	unsigned int blockId;
@@ -30,5 +31,6 @@ private:
 	unsigned int distanceFromPivot;
 	unsigned int rotationIndex;
 	std::vector<sf::Vector2i> rotationTable;
+	sf::Vector2i originalPosition;
 	static std::atomic_uint32_t nextId;
 };

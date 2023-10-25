@@ -6,14 +6,20 @@ TileDestroyer::TileDestroyer(CollisionTable& collisionTable, std::vector<Block>&
 {
 }
 
-unsigned int TileDestroyer::destroyAll()
+std::vector<int> TileDestroyer::destroyAll()
 {
-	unsigned int destroyedRowsCount{};
-	for(; destroy() > 0;) ++destroyedRowsCount;
-	return destroyedRowsCount;
+	std::vector<int> destroyedRows{};
+	int destroyedRow{-1};
+	while (true)
+	{
+		destroyedRow = destroy();
+		if (destroyedRow < 0) break;
+		destroyedRows.push_back(destroyedRow);
+	}
+	return destroyedRows;
 }
 
-unsigned int TileDestroyer::destroy()
+int TileDestroyer::destroy()
 {
 	int rowToDestroy{ -1 };
 	const auto size{ collisionTable.getSize() };
@@ -41,7 +47,7 @@ unsigned int TileDestroyer::destroy()
 
 	if (rowToDestroy < 0)
 	{
-		return 0;
+		return rowToDestroy;
 	}
 
 	for (int column = 0; column < size.x; column++)
@@ -56,5 +62,5 @@ unsigned int TileDestroyer::destroy()
 		collisionTable.removeCollider(position);
 	}
 
-	return 1;
+	return rowToDestroy;
 }

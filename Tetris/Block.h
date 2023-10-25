@@ -15,6 +15,7 @@ public:
 	void rotate();
 	void print() const;
 	const std::vector<Tile>& getElements() const;
+	std::vector<Tile>& getElementsForModification();
 	const unsigned int getId() const noexcept;
 private:
 	std::vector<Tile> elements;
