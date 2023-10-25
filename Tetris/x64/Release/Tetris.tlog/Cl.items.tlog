@@ -2,6 +2,7 @@ C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\Block.cpp;C:\Users\p
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\BlockMover.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\BlockMover.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\CollisionHandler.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\CollisionHandler.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\CollisionTable.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\CollisionTable.obj
+C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\GameLoop.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\GameLoop.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\IShapeGenerator.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\IShapeGenerator.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\LShapeGenerator.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\LShapeGenerator.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\main.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\main.obj

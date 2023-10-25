@@ -8,20 +8,18 @@ class BlockMover
 public:
 	BlockMover(CollisionHandler& newCollisionHandler);
 	void setUserActions(const std::vector<UserAction>& newUserActions);
-	void setBlock(std::shared_ptr<Block> block);
-	bool move();
-	bool applyGravity();
+	bool move(Block& block);
+	bool applyGravity(Block& block);
 private:
-	bool applyUserActions();
-	bool applyUserAction(const UserAction& userAction);
-	bool moveDown();
-	bool moveRight();
-	bool moveLeft();
-	bool rotate();
-	bool canMove(sf::Vector2i move);
-	bool canRotate();
+	bool applyUserActions(Block& block);
+	bool applyUserAction(const UserAction& userAction, Block& block);
+	bool moveDown(Block& block);
+	bool moveRight(Block& block);
+	bool moveLeft(Block& block);
+	bool rotate(Block& block);
+	bool canMove(Block& block, sf::Vector2i move);
+	bool canRotate(Block& block);
 	CollisionHandler collisionHandler;
 	std::vector<UserAction> userActions;
-	std::shared_ptr<Block> block;
 };
 

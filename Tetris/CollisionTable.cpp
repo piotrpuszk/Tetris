@@ -1,12 +1,12 @@
 #include "CollisionTable.h"
 
-CollisionTable::CollisionTable(const sf::Vector2i& mapSize)
+CollisionTable::CollisionTable(const WorldProperties& worldPropeties)
 	: collisionTable{},
-	size{mapSize}
+	size{worldPropeties.GetMapSize()}
 {
-	for (size_t height = 0; height < mapSize.y; height++)
+	for (size_t height = 0; height < worldPropeties.GetMapSize().y; height++)
 	{
-		collisionTable.push_back(std::vector<unsigned int>(mapSize.x, 0));
+		collisionTable.push_back(std::vector<unsigned int>(worldPropeties.GetMapSize().x, 0));
 	}
 }
 

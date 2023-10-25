@@ -60,6 +60,16 @@ void Block::rotate()
 	}
 }
 
+void Block::print() const
+{
+	std::cout << "~~~~~~~~~~~~~~~~~~~~" << std::endl;
+	for (const auto& e : elements)
+	{
+		std::cout << "(" << e.GetPosition().x << ", " << e.GetPosition().y << ") ";
+	}
+	std::cout << std::endl << "~~~~~~~~~~~~~~~~~~~~" << std::endl;
+}
+
 const std::vector<Tile>& Block::getElements() const
 {
 	return elements;

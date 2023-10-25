@@ -11,16 +11,15 @@
 class Renderer
 {
 public:
-	Renderer(std::shared_ptr<sf::RenderWindow> window,
-		std::shared_ptr<std::vector<std::shared_ptr<Block>>> blocks,
-		std::shared_ptr<WorldProperties> worldProperties,
-		std::shared_ptr<const bool> renderThreadCancellationToken);
+	Renderer(sf::RenderWindow& window,
+		std::vector<Block>& blocks,
+		WorldProperties& worldProperties);
 
 	void render();
 private:
-	std::shared_ptr<sf::RenderWindow> window;
-	std::shared_ptr<std::vector<std::shared_ptr<Block>>> blocks;
-	std::shared_ptr<WorldProperties> worldProperties;
-	std::shared_ptr<const bool> renderThreadCancellationToken;
+	sf::RenderWindow& window;
+	std::vector<Block>& blocks;
+	WorldProperties& worldProperties;
+	PositionToPixelConverter positionToPixelConverter;
 };
 

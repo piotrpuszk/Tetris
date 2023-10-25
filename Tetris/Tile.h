@@ -2,6 +2,7 @@
 #include <atomic>
 #include <SFML/Graphics.hpp>
 #include "WorldDirection.h"
+#include <iostream>
 
 class Tile
 {
@@ -15,7 +16,7 @@ public:
 	sf::Vector2i getMoveLeft(const int& speed = 1) const;
 	sf::Vector2i getMoveRight(const int& speed = 1) const;
 	sf::Vector2i getRotate() const;
-	const sf::RectangleShape GetImage() const noexcept;
+	sf::RectangleShape GetImage() const noexcept;
 	const sf::Vector2i GetPosition() const noexcept;
 	const unsigned int GetId() const noexcept;
 	const unsigned int GetBlockId() const noexcept;

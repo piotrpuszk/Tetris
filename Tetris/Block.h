@@ -13,6 +13,7 @@ public:
 	void moveRight();
 	void moveLeft();
 	void rotate();
+	void print() const;
 	const std::vector<Tile>& getElements() const;
 	const unsigned int getId() const noexcept;
 private:

@@ -17,6 +17,7 @@ Tile::Tile(unsigned int newId, std::vector<sf::Vector2i> rotationTable, int x, i
 bool Tile::moveDown(const int& speed)
 {
 	position += getMoveDown(speed);
+	//std::cout << position.y << std::endl;
 	return true;
 }
 
@@ -62,7 +63,7 @@ sf::Vector2i Tile::getRotate() const
 	return translation;
 }
 
-const sf::RectangleShape Tile::GetImage() const noexcept
+sf::RectangleShape Tile::GetImage() const noexcept
 {
 	return image;
 }

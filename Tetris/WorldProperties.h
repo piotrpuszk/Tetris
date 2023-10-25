@@ -1,21 +1,18 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include <string>
 
 class WorldProperties
 {
 public:
-	WorldProperties(unsigned int screenWidth,
-	unsigned int screenHeight,
-	unsigned int mapWidth,
-	unsigned int mapHeight);
-	unsigned int GetScreenWidth() const;
-	unsigned int GetScreenHeight() const;
-	unsigned int GetMapWidth() const;
-	unsigned int GetMapHeight() const;
-
-
+	WorldProperties(sf::Vector2u mapSize, float tileSize, std::string gameName);
+	sf::Vector2u GetScreenSize() const noexcept;
+	sf::Vector2u GetMapSize() const noexcept;
+	float GetTileSize() const noexcept;
+	std::string GetGameName() const noexcept;
 private:
-	unsigned int screenWidth;
-	unsigned int screenHeight;
-	unsigned int mapWidth;
-	unsigned int mapHeight;
+	sf::Vector2u screenSize;
+	sf::Vector2u mapSize;
+	float tileSize;
+	std::string gameName;
 };

@@ -8,11 +8,11 @@
 class TileDestroyer
 {
 public:
-	TileDestroyer(std::shared_ptr<CollisionTable> collisionTable, std::shared_ptr<std::vector<std::shared_ptr<Block>>> blocks);
+	TileDestroyer(CollisionTable& collisionTable, std::vector<Block>& blocks);
 	unsigned int destroyAll();
 	unsigned int destroy();
 private:
-	std::shared_ptr<CollisionTable> collisionTable;
-	std::shared_ptr<std::vector<std::shared_ptr<Block>>> blocks;
+	CollisionTable& collisionTable;
+	std::vector<Block>& blocks;
 };
 

@@ -138,6 +138,7 @@
     <ClCompile Include="BlockMover.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="CollisionTable.cpp" />
+    <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="IShapeGenerator.cpp" />
     <ClCompile Include="LShapeGenerator.cpp" />
     <ClCompile Include="main.cpp" />
@@ -157,8 +158,10 @@
     <ClInclude Include="BlockMover.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="CollisionTable.h" />
+    <ClInclude Include="GameLoop.h" />
     <ClInclude Include="IShapeGenerator.h" />
     <ClInclude Include="LShapeGenerator.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="PositionToPixelConverter.h" />
     <ClInclude Include="RandomShapeGenerator.h" />
     <ClInclude Include="Renderer.h" />

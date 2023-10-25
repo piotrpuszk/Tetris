@@ -1,26 +1,30 @@
 #include "WorldProperties.h"
 
-WorldProperties::WorldProperties(unsigned int screenWidth, unsigned int screenHeight, unsigned int mapWidth, unsigned int mapHeight)
-	: screenWidth{ screenWidth }, screenHeight{ screenHeight }, mapWidth{ mapWidth }, mapHeight{ mapHeight }
+WorldProperties::WorldProperties(sf::Vector2u mapSize, float tileSize, std::string gameName)
+	:
+	gameName{ gameName },
+	mapSize{ mapSize },
+	tileSize{ tileSize },
+	screenSize{ static_cast<unsigned int>(tileSize * mapSize.x), static_cast<unsigned int>(tileSize * mapSize.y) }
 {
 }
 
-unsigned int WorldProperties::GetScreenWidth() const
+sf::Vector2u WorldProperties::GetScreenSize() const noexcept
 {
-	return screenWidth;
+	return screenSize;
 }
 
-unsigned int WorldProperties::GetScreenHeight() const
+sf::Vector2u WorldProperties::GetMapSize() const noexcept
 {
-	return screenHeight;
+	return mapSize;
 }
 
-unsigned int WorldProperties::GetMapWidth() const
+float WorldProperties::GetTileSize() const noexcept
 {
-	return mapWidth;
+	return tileSize;
 }
 
-unsigned int WorldProperties::GetMapHeight() const
+std::string WorldProperties::GetGameName() const noexcept
 {
-	return mapHeight;
+	return gameName;
 }

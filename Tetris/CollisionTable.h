@@ -2,11 +2,12 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "Tile.h"
+#include "WorldProperties.h"
 
 class CollisionTable
 {
 public:
-	CollisionTable(const sf::Vector2i& mapSize);
+	CollisionTable(const WorldProperties& worldPropeties);
 	bool isBlocked(unsigned int id, const sf::Vector2i& position) const;
 	bool isBlocked(const sf::Vector2i& position) const;
 	void addCollider(const Tile& element);

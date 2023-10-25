@@ -1,7 +1,8 @@
 #include "BlockMover.h"
 
 BlockMover::BlockMover(CollisionHandler& newCollisionHandler)
-	: collisionHandler{ newCollisionHandler }
+	: 
+	collisionHandler{ newCollisionHandler }
 {
 }
 
@@ -11,101 +12,97 @@ void BlockMover::setUserActions(const std::vector<UserAction>& newUserActions)
 	for (auto& action : newUserActions) userActions.push_back(action);
 }
 
-void BlockMover::setBlock(std::shared_ptr<Block> block)
-{
-	this->block = block;
-}
-
-bool BlockMover::move()
+bool BlockMover::move(Block& block)
 {
 
-	auto gravityMove = applyGravity();
-	auto userMove = applyUserActions();
+	auto gravityMove = applyGravity(block);
+	auto userMove = applyUserActions(block);
 	return gravityMove || userMove;
 }
 
-bool BlockMover::applyGravity()
+bool BlockMover::applyGravity(Block& block)
 {
-	return moveDown();
+	return moveDown(block);
 }
 
-bool BlockMover::applyUserActions()
+bool BlockMover::applyUserActions(Block& block)
 {
 	bool anyMove{};
 	for (auto userAction : userActions)
 	{
-		anyMove = applyUserAction(userAction) || anyMove;
+		anyMove = applyUserAction(userAction, block) || anyMove;
 	}
 	return anyMove;
 }
 
-bool BlockMover::applyUserAction(const UserAction& userAction)
+bool BlockMover::applyUserAction(const UserAction& userAction, Block& block)
 {
 	switch (userAction)
 	{	
 		case UserAction::Up:
-			return rotate();
+			return rotate(block);
 			break;
 		case UserAction::Down:
-			return moveDown();
+			return moveDown(block);
 		case UserAction::Right:
-			return moveRight();
+			return moveRight(block);
 		case UserAction::Left:
-			return moveLeft();
+			return moveLeft(block);
 	}
+	return false;
 }
 
-bool BlockMover::moveDown()
+bool BlockMover::moveDown(Block& block)
 {
-	if (canMove(WorldDirection::down))
+	if (canMove(block, WorldDirection::down))
 	{
-		collisionHandler.removeCollider(*block);
-		block->moveDown();
-		collisionHandler.addCollider(*block);
+		collisionHandler.removeCollider(block);
+		block.moveDown();
+		collisionHandler.addCollider(block);
 		return true;
 	}
 	return false;
 }
 
-bool BlockMover::moveRight()
+bool BlockMover::moveRight(Block& block)
 {
-	if (canMove(WorldDirection::right))
+	if (canMove(block, WorldDirection::right))
 	{
-		collisionHandler.removeCollider(*block);
-		block->moveRight();
-		collisionHandler.addCollider(*block);
+		collisionHandler.removeCollider(block);
+		block.moveRight();
+		collisionHandler.addCollider(block);
 		return true;
 	}
 	return false;
 }
 
-bool BlockMover::moveLeft()
+bool BlockMover::moveLeft(Block& block)
 {
-	if (canMove(WorldDirection::left))
+	if (canMove(block, WorldDirection::left))
 	{
-		collisionHandler.removeCollider(*block);
-		block->moveLeft();
-		collisionHandler.addCollider(*block);
+		collisionHandler.removeCollider(block);
+		block.moveLeft();
+		collisionHandler.addCollider(block);
 		return true;
 	}
 	return false;
 }
 
-bool BlockMover::rotate()
+bool BlockMover::rotate(Block& block)
 {
-	if (canRotate())
+	if (canRotate(block))
 	{
-		collisionHandler.removeCollider(*block);
-		block->rotate();
-		collisionHandler.addCollider(*block);
+		collisionHandler.removeCollider(block);
+		block.rotate();
+		collisionHandler.addCollider(block);
 		return true;
 	}
 	return false;
 }
 
-bool BlockMover::canMove(sf::Vector2i move)
+bool BlockMover::canMove(Block& block, sf::Vector2i move)
 {
-	for (auto& e : block->getElements())
+	for (auto& e : block.getElements())
 	{
 		if (collisionHandler.isColliding(e, move))
 		{
@@ -115,9 +112,9 @@ bool BlockMover::canMove(sf::Vector2i move)
 	return true;
 }
 
-bool BlockMover::canRotate()
+bool BlockMover::canRotate(Block& block)
 {
-	for (auto& e : block->getElements())
+	for (auto& e : block.getElements())
 	{
 		auto move{e.getRotate()};
 		if (collisionHandler.isColliding(e, move))
