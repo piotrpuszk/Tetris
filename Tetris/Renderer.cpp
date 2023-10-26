@@ -1,11 +1,13 @@
 #include "Renderer.h"
 
-Renderer::Renderer(sf::RenderWindow& window, std::vector<Block>& blocks, WorldProperties& worldProperties)
-	: 
+Renderer::Renderer(sf::RenderWindow& window, std::vector<Block>& blocks, WorldProperties& worldProperties, ScoreController& scoreController, TextDrawer textDrawer)
+	:
 	window{ window },
 	blocks{ blocks },
 	worldProperties{ worldProperties },
-	positionToPixelConverter{ worldProperties }
+	positionToPixelConverter{ worldProperties },
+	scoreController{ scoreController },
+	textDrawer{ textDrawer }
 {
 }
 
@@ -24,6 +26,8 @@ void Renderer::render()
 			window.draw(image);
 		}
 	}
+
+	window.draw(textDrawer.write("Score: " + std::to_string(scoreController.getScore())));
 
 	window.display();
 }

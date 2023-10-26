@@ -5,6 +5,7 @@
 #include "WorldProperties.h"
 #include "Renderer.h"
 #include "GameLoop.h"
+#include "ScoreController.h"
 
 int main()
 {
@@ -18,8 +19,16 @@ int main()
 	window.setVerticalSyncEnabled(true);
 
 	std::vector<Block> blocks{};
-	Renderer renderer{ window, blocks, worldProperties };
-	GameLoop gameLoop{ worldProperties, blocks };
+	ScoreController scoreController{ worldProperties };
+	TextDrawer textDrawer{};
+	if (!textDrawer.setFont("Roboto-Regular.ttf"))
+	{
+		std::cerr << "Font " << "Roboto-Regular.ttf" << " could not be set up" << std::endl;
+		return 1;
+	}
+	textDrawer.setStyle(24, sf::Color::Green);
+	Renderer renderer{ window, blocks, worldProperties, scoreController, textDrawer };
+	GameLoop gameLoop{ worldProperties, blocks, scoreController };
 
 	while (window.isOpen())
 	{

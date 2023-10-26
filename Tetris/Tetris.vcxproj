@@ -145,7 +145,9 @@
     <ClCompile Include="PositionToPixelConverter.cpp" />
     <ClCompile Include="RandomShapeGenerator.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="ScoreController.cpp" />
     <ClCompile Include="SquareShapeGenerator.cpp" />
+    <ClCompile Include="TextDrawer.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileDestroyer.cpp" />
     <ClCompile Include="TShapeGenerator.cpp" />
@@ -165,8 +167,10 @@
     <ClInclude Include="PositionToPixelConverter.h" />
     <ClInclude Include="RandomShapeGenerator.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="ScoreController.h" />
     <ClInclude Include="ShapeGenerator.h" />
     <ClInclude Include="SquareShapeGenerator.h" />
+    <ClInclude Include="TextDrawer.h" />
     <ClInclude Include="TileDestroyer.h" />
     <ClInclude Include="TShapeGenerator.h" />
     <ClInclude Include="UserAction.h" />
@@ -175,6 +179,9 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="WorldProperties.h" />
     <ClInclude Include="ZShapeGenerator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Roboto-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

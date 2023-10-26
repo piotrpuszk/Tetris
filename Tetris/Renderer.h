@@ -5,6 +5,8 @@
 #include "WorldProperties.h"
 #include "Block.h"
 #include "PositionToPixelConverter.h"
+#include "ScoreController.h"
+#include "TextDrawer.h"
 
 #include <iostream>
 
@@ -13,7 +15,9 @@ class Renderer
 public:
 	Renderer(sf::RenderWindow& window,
 		std::vector<Block>& blocks,
-		WorldProperties& worldProperties);
+		WorldProperties& worldProperties,
+		ScoreController& scoreController,
+		TextDrawer textDrawer);
 
 	void render();
 private:
@@ -21,5 +25,7 @@ private:
 	std::vector<Block>& blocks;
 	WorldProperties& worldProperties;
 	PositionToPixelConverter positionToPixelConverter;
+	ScoreController& scoreController;
+	TextDrawer textDrawer;
 };
 

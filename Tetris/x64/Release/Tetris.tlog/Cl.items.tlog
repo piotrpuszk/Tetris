@@ -9,7 +9,9 @@ C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\main.cpp;C:\Users\pi
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\PositionToPixelConverter.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\PositionToPixelConverter.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\RandomShapeGenerator.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\RandomShapeGenerator.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\Renderer.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\Renderer.obj
+C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\ScoreController.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\ScoreController.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\SquareShapeGenerator.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\SquareShapeGenerator.obj
+C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\TextDrawer.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\TextDrawer.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\Tile.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\Tile.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\TileDestroyer.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\TileDestroyer.obj
 C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\TShapeGenerator.cpp;C:\Users\piotr\Documents\personal\vs-projects\Tetris\Tetris\x64\Release\TShapeGenerator.obj

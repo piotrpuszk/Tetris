@@ -4,11 +4,12 @@
 #include "TileDestroyer.h"
 #include "RandomShapeGenerator.h"
 #include "UserInputHandler.h"
+#include "ScoreController.h"
 
 class GameLoop
 {
 public:
-	GameLoop(const WorldProperties& worldProperties, std::vector<Block>& blocks);
+	GameLoop(const WorldProperties& worldProperties, std::vector<Block>& blocks, ScoreController& scoreController);
 	void update(sf::RenderWindow& window);
 	void fixedUpdate();
 private:
@@ -23,5 +24,6 @@ private:
 	TileDestroyer tileDestroyer;
 	RandomShapeGenerator randomShapeGenerator;
 	std::vector<int> destroyedRows;
+	ScoreController& scoreController;
 };
 
