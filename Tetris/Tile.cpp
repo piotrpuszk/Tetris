@@ -13,6 +13,8 @@ Tile::Tile(unsigned int newId, std::vector<sf::Vector2i> rotationTable, int x, i
 	rotationIndex{ newRotationIndex },
 	originalPosition{ x, y }
 {
+	image.setOutlineThickness(2.f);
+	image.setOutlineColor(sf::Color::Black);
 }
 
 bool Tile::moveDown(const int& speed)
@@ -67,6 +69,11 @@ sf::Vector2i Tile::getRotate() const
 sf::RectangleShape Tile::GetImage() const noexcept
 {
 	return image;
+}
+
+void Tile::setImageTexture(sf::Texture& texture)
+{
+	image.setTexture(&texture);
 }
 
 const sf::Vector2i Tile::GetPosition() const noexcept

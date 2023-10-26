@@ -146,8 +146,10 @@
     <ClCompile Include="RandomShapeGenerator.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ScoreController.cpp" />
+    <ClCompile Include="ShapeGenerator.cpp" />
     <ClCompile Include="SquareShapeGenerator.cpp" />
     <ClCompile Include="TextDrawer.cpp" />
+    <ClCompile Include="TextureStore.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileDestroyer.cpp" />
     <ClCompile Include="TShapeGenerator.cpp" />
@@ -167,10 +169,12 @@
     <ClInclude Include="PositionToPixelConverter.h" />
     <ClInclude Include="RandomShapeGenerator.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="ScoreController.h" />
     <ClInclude Include="ShapeGenerator.h" />
     <ClInclude Include="SquareShapeGenerator.h" />
     <ClInclude Include="TextDrawer.h" />
+    <ClInclude Include="TextureStore.h" />
     <ClInclude Include="TileDestroyer.h" />
     <ClInclude Include="TShapeGenerator.h" />
     <ClInclude Include="UserAction.h" />
@@ -182,6 +186,18 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="Roboto-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Tetris.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Background.jpg" />
+    <Image Include="Background02.jpg" />
+    <Image Include="Brick01.jpg" />
+    <Image Include="Brick02.jpg" />
+    <Image Include="Brick03.png" />
+    <Image Include="Brick04.jpg" />
+    <Image Include="Brick05.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

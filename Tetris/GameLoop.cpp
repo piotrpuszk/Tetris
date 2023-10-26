@@ -1,6 +1,6 @@
 #include "GameLoop.h"
 
-GameLoop::GameLoop(const WorldProperties& worldProperties, std::vector<Block>& blocks, ScoreController& scoreController)
+GameLoop::GameLoop(const WorldProperties& worldProperties, std::vector<Block>& blocks, ScoreController& scoreController, TextureStore& textureStore)
 	:
 	fixedTimeClock{},
 	blocks{ blocks },
@@ -10,7 +10,7 @@ GameLoop::GameLoop(const WorldProperties& worldProperties, std::vector<Block>& b
 	blockMover{ collisionHandler },
 	userInputHandler{},
 	tileDestroyer{ collisionTable, blocks },
-	randomShapeGenerator{ {worldProperties.GetTileSize(), worldProperties.GetTileSize()}, worldProperties.GetMapSize().x / 2 },
+	randomShapeGenerator{ {worldProperties.GetTileSize(), worldProperties.GetTileSize()}, worldProperties.GetMapSize().x / 2, textureStore },
 	currentBlockIndex{},
 	destroyedRows{},
 	scoreController{ scoreController }

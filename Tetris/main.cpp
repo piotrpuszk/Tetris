@@ -6,10 +6,11 @@
 #include "Renderer.h"
 #include "GameLoop.h"
 #include "ScoreController.h"
+#include "TextureStore.h"
 
 int main()
 {
-	WorldProperties worldProperties{ sf::Vector2u{12, 20}, 30.f, "Tetrisso" };
+	WorldProperties worldProperties{ sf::Vector2u{12, 20}, 50.f, "Tetrisso" };
 	sf::RenderWindow window
 	{
 		{worldProperties.GetScreenSize().x, worldProperties.GetScreenSize().y},
@@ -21,6 +22,7 @@ int main()
 	std::vector<Block> blocks{};
 	ScoreController scoreController{ worldProperties };
 	TextDrawer textDrawer{};
+	TextureStore textureStore{};
 	if (!textDrawer.setFont("Roboto-Regular.ttf"))
 	{
 		std::cerr << "Font " << "Roboto-Regular.ttf" << " could not be set up" << std::endl;
@@ -28,7 +30,7 @@ int main()
 	}
 	textDrawer.setStyle(24, sf::Color::Green);
 	Renderer renderer{ window, blocks, worldProperties, scoreController, textDrawer };
-	GameLoop gameLoop{ worldProperties, blocks, scoreController };
+	GameLoop gameLoop{ worldProperties, blocks, scoreController, textureStore };
 
 	while (window.isOpen())
 	{

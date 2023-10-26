@@ -1,6 +1,5 @@
 #pragma once
 #include "WorldProperties.h"
-#include <iostream>
 
 class ScoreController
 {

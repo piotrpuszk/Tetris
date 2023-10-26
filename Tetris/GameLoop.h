@@ -5,11 +5,12 @@
 #include "RandomShapeGenerator.h"
 #include "UserInputHandler.h"
 #include "ScoreController.h"
+#include "TextureStore.h"
 
 class GameLoop
 {
 public:
-	GameLoop(const WorldProperties& worldProperties, std::vector<Block>& blocks, ScoreController& scoreController);
+	GameLoop(const WorldProperties& worldProperties, std::vector<Block>& blocks, ScoreController& scoreController, TextureStore& textureStore);
 	void update(sf::RenderWindow& window);
 	void fixedUpdate();
 private:

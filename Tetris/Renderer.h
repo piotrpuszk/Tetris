@@ -27,5 +27,7 @@ private:
 	PositionToPixelConverter positionToPixelConverter;
 	ScoreController& scoreController;
 	TextDrawer textDrawer;
+	sf::Texture backgroundTexture;
+	sf::RectangleShape background;
 };
 

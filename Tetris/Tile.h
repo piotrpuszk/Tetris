@@ -17,6 +17,7 @@ public:
 	sf::Vector2i getMoveRight(const int& speed = 1) const;
 	sf::Vector2i getRotate() const;
 	sf::RectangleShape GetImage() const noexcept;
+	void setImageTexture(sf::Texture& texture);
 	const sf::Vector2i GetPosition() const noexcept;
 	const unsigned int GetId() const noexcept;
 	const unsigned int GetBlockId() const noexcept;
