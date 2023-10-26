@@ -199,6 +199,9 @@
     <Image Include="Brick04.jpg" />
     <Image Include="Brick05.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="Country Title Loop.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

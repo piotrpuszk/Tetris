@@ -7,10 +7,15 @@
 #include "GameLoop.h"
 #include "ScoreController.h"
 #include "TextureStore.h"
+#include <SFML/Audio.hpp>
+
+const std::string musicFile{ "Country Title Loop.wav" };
+const std::string fontFile{ "Roboto-Regular.ttf" };
+const std::string gameName{ "Tetrisso" };
 
 int main()
 {
-	WorldProperties worldProperties{ sf::Vector2u{12, 20}, 50.f, "Tetrisso" };
+	WorldProperties worldProperties{ sf::Vector2u{12, 20}, 50.f, gameName };
 	sf::RenderWindow window
 	{
 		{worldProperties.GetScreenSize().x, worldProperties.GetScreenSize().y},
@@ -23,14 +28,24 @@ int main()
 	ScoreController scoreController{ worldProperties };
 	TextDrawer textDrawer{};
 	TextureStore textureStore{};
-	if (!textDrawer.setFont("Roboto-Regular.ttf"))
+	if (!textDrawer.setFont(fontFile))
 	{
-		std::cerr << "Font " << "Roboto-Regular.ttf" << " could not be set up" << std::endl;
+		std::cerr << "Font " << fontFile << " could not be set up" << std::endl;
 		return 1;
 	}
 	textDrawer.setStyle(24, sf::Color::Green);
 	Renderer renderer{ window, blocks, worldProperties, scoreController, textDrawer };
 	GameLoop gameLoop{ worldProperties, blocks, scoreController, textureStore };
+	sf::Music music{};
+	if (!music.openFromFile(musicFile))
+	{
+		std::cerr << "Couldn't not open a music file " << musicFile << std::endl;
+	}
+	else
+	{
+		music.setLoop(true);
+		music.play();
+	}
 
 	while (window.isOpen())
 	{
