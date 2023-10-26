@@ -12,10 +12,14 @@
 const std::string musicFile{ "Country Title Loop.wav" };
 const std::string fontFile{ "Roboto-Regular.ttf" };
 const std::string gameName{ "Tetrisso" };
+const sf::Vector2u mapSize{ 12, 20 };
+const float tileSize{ 50.f };
+const unsigned fontSize{ 24 };
+sf::Color textColor{ sf::Color::Green };
 
 int main()
 {
-	WorldProperties worldProperties{ sf::Vector2u{12, 20}, 50.f, gameName };
+	WorldProperties worldProperties{ mapSize, tileSize, gameName };
 	sf::RenderWindow window
 	{
 		{worldProperties.GetScreenSize().x, worldProperties.GetScreenSize().y},
@@ -33,7 +37,7 @@ int main()
 		std::cerr << "Font " << fontFile << " could not be set up" << std::endl;
 		return 1;
 	}
-	textDrawer.setStyle(24, sf::Color::Green);
+	textDrawer.setStyle(fontSize, textColor);
 	Renderer renderer{ window, blocks, worldProperties, scoreController, textDrawer };
 	GameLoop gameLoop{ worldProperties, blocks, scoreController, textureStore };
 	sf::Music music{};
