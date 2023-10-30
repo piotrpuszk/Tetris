@@ -142,6 +142,7 @@
     <ClCompile Include="IShapeGenerator.cpp" />
     <ClCompile Include="LShapeGenerator.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapDisplayer.cpp" />
     <ClCompile Include="PositionToPixelConverter.cpp" />
     <ClCompile Include="RandomShapeGenerator.cpp" />
     <ClCompile Include="Renderer.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="IShapeGenerator.h" />
     <ClInclude Include="LShapeGenerator.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="MapDisplayer.h" />
     <ClInclude Include="PositionToPixelConverter.h" />
     <ClInclude Include="RandomShapeGenerator.h" />
     <ClInclude Include="Renderer.h" />
@@ -198,6 +200,7 @@
     <Image Include="Brick03.png" />
     <Image Include="Brick04.jpg" />
     <Image Include="Brick05.jpg" />
+    <Image Include="Padding01.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Country Title Loop.wav" />

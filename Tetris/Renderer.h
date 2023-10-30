@@ -7,6 +7,7 @@
 #include "PositionToPixelConverter.h"
 #include "ScoreController.h"
 #include "TextDrawer.h"
+#include "MapDisplayer.h"
 
 #include <iostream>
 
@@ -17,7 +18,8 @@ public:
 		std::vector<Block>& blocks,
 		WorldProperties& worldProperties,
 		ScoreController& scoreController,
-		TextDrawer textDrawer);
+		TextDrawer textDrawer, 
+		MapDisplayer& mapDisplayer);
 
 	void render();
 private:
@@ -29,5 +31,6 @@ private:
 	TextDrawer textDrawer;
 	sf::Texture backgroundTexture;
 	sf::RectangleShape background;
+	MapDisplayer& mapDisplayer;
 };
 

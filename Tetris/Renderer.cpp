@@ -1,6 +1,11 @@
 #include "Renderer.h"
 
-Renderer::Renderer(sf::RenderWindow& window, std::vector<Block>& blocks, WorldProperties& worldProperties, ScoreController& scoreController, TextDrawer textDrawer)
+Renderer::Renderer(sf::RenderWindow& window,
+	std::vector<Block>& blocks,
+	WorldProperties& worldProperties,
+	ScoreController& scoreController,
+	TextDrawer textDrawer,
+	MapDisplayer& mapDisplayer)
 	:
 	window{ window },
 	blocks{ blocks },
@@ -9,11 +14,11 @@ Renderer::Renderer(sf::RenderWindow& window, std::vector<Block>& blocks, WorldPr
 	scoreController{ scoreController },
 	textDrawer{ textDrawer },
 	backgroundTexture{},
-	background{}
+	background{},
+	mapDisplayer{ mapDisplayer }
 {
 	backgroundTexture.loadFromFile("Background02.jpg");
 	background.setSize({ static_cast<float>(backgroundTexture.getSize().x),static_cast<float>(backgroundTexture.getSize().y) });
-	//background.setScale({ 1, 2 });
 	background.setTexture(&backgroundTexture);
 }
 
@@ -23,12 +28,18 @@ void Renderer::render()
 
 	window.draw(background);
 
+	for (const auto& paddingBlock : mapDisplayer.getPaddingBlocks())
+	{
+		window.draw(paddingBlock);
+	}
+
 	for (const auto& block : blocks)
 	{
 		for (const auto& e : block.getElements())
 		{
 			auto image = e.GetImage();
 			auto position{ positionToPixelConverter.getPixelsForPosition(e.GetPosition()) };
+			position.x += mapDisplayer.getLeftPadding();
 			image.setPosition(position);
 			window.draw(image);
 		}

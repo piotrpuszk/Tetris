@@ -9,6 +9,8 @@ TextureStore::TextureStore()
 	brick03.loadFromFile("Brick03.png");
 	brick04.loadFromFile("Brick04.jpg");
 	brick05.loadFromFile("Brick05.jpg");
+	padding.loadFromFile("Padding01.jpg");
+	padding.setRepeated(true);
 }
 
 sf::Texture& TextureStore::getBrick01()
@@ -34,4 +36,9 @@ sf::Texture& TextureStore::getBrick04()
 sf::Texture& TextureStore::getBrick05()
 {
 	return brick05;
+}
+
+sf::Texture& TextureStore::getPadding()
+{
+	return padding;
 }

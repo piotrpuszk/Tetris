@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <thread>
 #include "Tile.h"
@@ -7,7 +8,7 @@
 #include "GameLoop.h"
 #include "ScoreController.h"
 #include "TextureStore.h"
-#include <SFML/Audio.hpp>
+#include "MapDisplayer.h"
 
 const std::string musicFile{ "Country Title Loop.wav" };
 const std::string fontFile{ "Roboto-Regular.ttf" };
@@ -22,9 +23,9 @@ int main()
 	WorldProperties worldProperties{ mapSize, tileSize, gameName };
 	sf::RenderWindow window
 	{
-		{worldProperties.GetScreenSize().x, worldProperties.GetScreenSize().y},
+		sf::VideoMode::getDesktopMode(),
 		worldProperties.GetGameName(),
-		sf::Style::Resize | sf::Style::Titlebar | sf::Style::Close
+		sf::Style::Fullscreen
 	};
 	window.setVerticalSyncEnabled(true);
 
@@ -32,13 +33,14 @@ int main()
 	ScoreController scoreController{ worldProperties };
 	TextDrawer textDrawer{};
 	TextureStore textureStore{};
+	MapDisplayer mapDisplayer{ worldProperties, textureStore };
 	if (!textDrawer.setFont(fontFile))
 	{
 		std::cerr << "Font " << fontFile << " could not be set up" << std::endl;
 		return 1;
 	}
 	textDrawer.setStyle(fontSize, textColor);
-	Renderer renderer{ window, blocks, worldProperties, scoreController, textDrawer };
+	Renderer renderer{ window, blocks, worldProperties, scoreController, textDrawer, mapDisplayer };
 	GameLoop gameLoop{ worldProperties, blocks, scoreController, textureStore };
 	sf::Music music{};
 	if (!music.openFromFile(musicFile))

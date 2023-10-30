@@ -81,6 +81,9 @@
     <ClCompile Include="ShapeGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MapDisplayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tile.h">
@@ -158,6 +161,9 @@
     <ClInclude Include="TextureStore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MapDisplayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Roboto-Regular.ttf" />
@@ -187,6 +193,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Background02.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Padding01.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
