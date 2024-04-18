@@ -4,12 +4,12 @@ TextureStore::TextureStore()
 	:
 	brick01{}
 {
-	brick01.loadFromFile("Brick01.jpg");
-	brick02.loadFromFile("Brick02.jpg");
-	brick03.loadFromFile("Brick03.png");
-	brick04.loadFromFile("Brick04.jpg");
-	brick05.loadFromFile("Brick05.jpg");
-	padding.loadFromFile("Padding01.jpg");
+	brick01.loadFromFile("polyHavenBrick01.jpg");
+	brick02.loadFromFile("polyHavenBrick03.jpg");
+	brick03.loadFromFile("polyHavenBrickPavement.jpg");
+	brick04.loadFromFile("polyHavenRoseWood.jpg");
+	brick05.loadFromFile("polyHavenDarkBrick.jpg");
+	padding.loadFromFile("polyHavenBrickPavement02.jpg");
 	padding.setRepeated(true);
 }
 

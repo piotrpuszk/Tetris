@@ -17,8 +17,9 @@ Renderer::Renderer(sf::RenderWindow& window,
 	background{},
 	mapDisplayer{ mapDisplayer }
 {
-	backgroundTexture.loadFromFile("Background02.jpg");
-	background.setSize({ static_cast<float>(backgroundTexture.getSize().x),static_cast<float>(backgroundTexture.getSize().y) });
+	backgroundTexture.loadFromFile("polyHavenSand.jpg");
+	background.setSize({ static_cast<float>(sf::VideoMode::getDesktopMode().width),static_cast<float>(sf::VideoMode::getDesktopMode().height)});
+	backgroundTexture.setRepeated(true);
 	background.setTexture(&backgroundTexture);
 }
 

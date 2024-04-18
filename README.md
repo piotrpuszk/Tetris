@@ -1,6 +1,6 @@
-Textures are from textures.com and have their own licences.
+Textures are taken from https://polyhaven.com/
 
-You cannot use music for any other purpose than playing this game.
+You cannot use the music for any other purpose than playing this game.
 
 SFML - https://www.sfml-dev.org/license.php
 

@@ -193,14 +193,13 @@
     <ResourceCompile Include="Tetris.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Background.jpg" />
-    <Image Include="Background02.jpg" />
-    <Image Include="Brick01.jpg" />
-    <Image Include="Brick02.jpg" />
-    <Image Include="Brick03.png" />
-    <Image Include="Brick04.jpg" />
-    <Image Include="Brick05.jpg" />
-    <Image Include="Padding01.jpg" />
+    <Image Include="polyHavenBrick01.jpg" />
+    <Image Include="polyHavenBrick03.jpg" />
+    <Image Include="polyHavenBrickPavement.jpg" />
+    <Image Include="polyHavenBrickPavement02.jpg" />
+    <Image Include="polyHavenDarkBrick.jpg" />
+    <Image Include="polyHavenRoseWood.jpg" />
+    <Image Include="polyHavenSand.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Country Title Loop.wav" />
