@@ -30,7 +30,7 @@ private:
 	ScoreController& scoreController;
 	TextDrawer textDrawer;
 	sf::Texture backgroundTexture;
-	sf::RectangleShape background;
+	std::vector<sf::RectangleShape> background;
 	MapDisplayer& mapDisplayer;
 };
 

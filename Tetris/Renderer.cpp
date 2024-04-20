@@ -17,17 +17,34 @@ Renderer::Renderer(sf::RenderWindow& window,
 	background{},
 	mapDisplayer{ mapDisplayer }
 {
-	backgroundTexture.loadFromFile("polyHavenSand.jpg");
-	background.setSize({ static_cast<float>(sf::VideoMode::getDesktopMode().width),static_cast<float>(sf::VideoMode::getDesktopMode().height)});
+	backgroundTexture.loadFromFile("grass01.png");
+	const float width{ static_cast<float>(sf::VideoMode::getDesktopMode().width) };
+	const float height{ static_cast<float>(sf::VideoMode::getDesktopMode().height) };
+	const auto blockSize{ 50.f };
+	sf::Vector2f startPosition{ };
 	backgroundTexture.setRepeated(true);
-	background.setTexture(&backgroundTexture);
+	sf::Vector2f position{};
+	for (; position.x < width; position.x += blockSize)
+	{
+		position.y = 0.f;
+		for (; position.y < height; position.y += blockSize)
+		{
+			sf::RectangleShape block{ sf::Vector2f{blockSize, blockSize} };
+			block.setPosition(startPosition + position);
+			block.setTexture(&backgroundTexture);
+			background.push_back(block);
+		}
+	}
 }
 
 void Renderer::render()
 {
 	window.clear(sf::Color::Black);
 
-	window.draw(background);
+	for (const auto& e : background)
+	{
+		window.draw(e);
+	}
 
 	for (const auto& paddingBlock : mapDisplayer.getPaddingBlocks())
 	{
